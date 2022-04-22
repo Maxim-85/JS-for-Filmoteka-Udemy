@@ -21,7 +21,7 @@ const personalMovieDB = {
 
 function rememberMyFilms() {
 	for (let i = 0; i < 2; i++) {
-		const film = prompt('Один из последних просмотренных фильмов', ''),
+		const film = prompt('Один из последних просмотренных фильмов', '').trim(),
 			grade = +prompt('Какую оценку поставите?', '');
 		if (film != '' && grade != '' && film != null && grade != null && film.length < 50) {
 			personalMovieDB.movies[film] = grade;
@@ -58,8 +58,14 @@ function showMyDB(hidden) {
 showMyDB(personalMovieDB.privat);
 
 function writeYourGenres() {
-	for(let i = 1; i <= 3; i++) {
-		personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`, '');		
+	for(let i = 1; i <= 3; i++) {		
+		const favoriteGenres = prompt(`Ваш любимый жанр под номером ${i}`, '');
+		if (favoriteGenres == typeof 'string')	{
+			personalMovieDB.genres[i - 1] = favoriteGenres;
+		}	else {
+			console.log('Genres error');
+			i--;
+		}
 	}
 }
 
