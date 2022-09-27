@@ -1,2 +1,2 @@
 # JS-React-from-Udemy
-Add any text to the readme file
+В этом проекте, на конкретном примере применял теоретические знания JS
